@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/calculator"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/calculator"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ExpensifyTrackerDesign">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".WelcomeActivity" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".dashboardActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".EditProfileActivity" />
+        <activity android:name=".NotificationActivity" />
+        <activity android:name=".SpendingActivity" />
+        <activity android:name=".Spending2Activity" />
+        <activity android:name=".AddIncomeActivity" />
+        <activity android:name=".AddExpenseActivity" />
+        <activity android:name=".ScanActivity" />
+        <activity android:name=".AiChatActivity" />
+        <activity android:name=".AllCategoriesActivity" />
+        <activity android:name=".RecoverpassActivity" />
+        <activity android:name=".ChangePasswordActivity" />
+        <activity android:name=".ChartDetailActivity" />
+        <activity android:name=".BalanceComparisonActivity" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

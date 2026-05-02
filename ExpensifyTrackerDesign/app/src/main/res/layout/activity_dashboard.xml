@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_tracker"
+    android:padding="16dp"
+    tools:context=".dashboardActivity">
+
+
+
+    <EditText
+        android:id="@+id/editbuttomText2"
+        android:layout_width="362dp"
+        android:layout_height="49dp"
+        android:background="@drawable/input"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
+
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/editbuttomText2"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/headerLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/input"
+                    android:padding="20dp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/tvGreeting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Great day to save some money!"
+                        android:textColor="#555555"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Emily Brianna"
+                        android:textColor="#000000"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvGreeting" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_action_name"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="#8D6E63" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/menuMonth"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="10dp"
+                    app:boxBackgroundColor="#FFFFFF"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintEnabled="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/headerLayout">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:id="@+id/spinnerMonth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/input"
+                        android:backgroundTint="#FFFFFF"
+                        android:inputType="none"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        tools:ignore="LabelFor" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/chartCard"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="6dp"
+                    android:backgroundTint="#F6D27B"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="8dp"
+                    app:layout_constraintEnd_toStartOf="@id/balanceCard"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/menuMonth"
+                    app:layout_constraintWidth_percent="0.48">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.github.mikephil.charting.charts.PieChart
+                            android:id="@+id/pieChart"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="4dp" />
+
+                        <View
+                            android:id="@+id/pieChartOverlay"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true" />
+                    </FrameLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/balanceCard"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:backgroundTint="#F4A940"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/chartCard"
+                    app:layout_constraintTop_toBottomOf="@id/menuMonth"
+                    app:layout_constraintWidth_percent="0.48">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Total Balance"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/ivToggleBalance"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:src="@android:drawable/ic_menu_view"
+                                app:tint="#FFFFFF" />
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:id="@+id/tvTotalBalance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="RM0.00"
+                            android:textColor="#1A2B49"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/bg_growth"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp">
+
+                            <TextView
+                                android:id="@+id/tvBalanceChange"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:textColor="#FF6F00"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="than last month"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="379dp"
+                    android:layout_height="99dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/input"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/balanceCard"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Monthly Spending Limit"
+                    android:textColor="#F4E56E"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/editText"
+                    app:layout_constraintEnd_toEndOf="@+id/editText"
+                    app:layout_constraintStart_toStartOf="@+id/editText"
+                    app:layout_constraintTop_toTopOf="@+id/editText"
+                    app:layout_constraintVertical_bias="0.041" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="238dp"
+                    android:layout_height="61dp"
+                    android:progressTint="#FFEB3B"
+                    app:layout_constraintBottom_toBottomOf="@+id/editText"
+                    app:layout_constraintEnd_toEndOf="@+id/editText"
+                    app:layout_constraintHorizontal_bias="0.496"
+                    app:layout_constraintStart_toStartOf="@+id/editText"
+                    app:layout_constraintTop_toTopOf="@+id/editText"
+                    app:layout_constraintVertical_bias="0.568" />
+
+                <TextView
+                    android:id="@+id/textView30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="RM4,200"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/editText"
+                    app:layout_constraintEnd_toEndOf="@+id/editText"
+                    app:layout_constraintHorizontal_bias="0.137"
+                    app:layout_constraintStart_toStartOf="@+id/editText"
+                    app:layout_constraintTop_toTopOf="@+id/editText"
+                    app:layout_constraintVertical_bias="0.881" />
+
+
+                <TextView
+                    android:id="@+id/textView31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="spent out of"
+                    android:textColor="#F4EAA5"
+                    app:layout_constraintBottom_toBottomOf="@+id/editText"
+                    app:layout_constraintEnd_toEndOf="@+id/editText"
+                    app:layout_constraintStart_toStartOf="@+id/editText"
+                    app:layout_constraintTop_toTopOf="@+id/editText"
+                    app:layout_constraintVertical_bias="0.855" />
+
+                <TextView
+                    android:id="@+id/textView32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="RM5,500"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/editText"
+                    app:layout_constraintEnd_toEndOf="@+id/editText"
+                    app:layout_constraintHorizontal_bias="0.869"
+                    app:layout_constraintStart_toStartOf="@+id/editText"
+                    app:layout_constraintTop_toTopOf="@+id/editText"
+                    app:layout_constraintVertical_bias="0.851" />
+
+                <EditText
+                    android:id="@+id/dashboardtxt"
+                    android:layout_width="370dp"
+                    android:layout_height="256dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/input"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editText"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:id="@+id/textView33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Top 5 Categories"
+                    android:textColor="#FAF09A"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/dashboardtxt"
+                    app:layout_constraintEnd_toEndOf="@+id/dashboardtxt"
+                    app:layout_constraintHorizontal_bias="0.057"
+                    app:layout_constraintStart_toStartOf="@+id/dashboardtxt"
+                    app:layout_constraintTop_toTopOf="@+id/dashboardtxt"
+                    app:layout_constraintVertical_bias="0.043" />
+
+                <LinearLayout
+                    android:id="@+id/llCategorySummary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="16dp"
+                    app:layout_constraintEnd_toEndOf="@+id/dashboardtxt"
+                    app:layout_constraintStart_toStartOf="@+id/dashboardtxt"
+                    app:layout_constraintTop_toTopOf="@+id/dashboardtxt">
+                    <!-- Dynamic items will be added here -->
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/aiAdvisorCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="10dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="8dp"
+                    app:backgroundTint="#FFFFFF"
+                    app:strokeWidth="2dp"
+                    app:strokeColor="#FFCC00"
+                    app:layout_constraintTop_toBottomOf="@id/dashboardtxt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:src="@android:drawable/ic_dialog_info"
+                                app:tint="#F48A44" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="AI Prediction &amp; Advisor"
+                                android:textColor="#F48A44"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvAiAdvice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="Analyzing your financial habits..."
+                            android:textColor="#444444"
+                            android:lineSpacingExtra="4dp"
+                            android:textSize="15sp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/tvAiPrediction"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Next month prediction: --"
+                            android:textColor="#888888"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    <ImageButton
+        android:id="@+id/btnDashboard"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/bg_nav_active"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/editbuttomText2"
+        app:layout_constraintEnd_toEndOf="@+id/editbuttomText2"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="@+id/editbuttomText2"
+        app:layout_constraintTop_toTopOf="@+id/editbuttomText2"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/ic_home_name"
+        app:tint="#000000"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/btnAiChat"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/editbuttomText2"
+        app:layout_constraintEnd_toEndOf="@+id/editbuttomText2"
+        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintStart_toStartOf="@+id/editbuttomText2"
+        app:layout_constraintTop_toTopOf="@+id/editbuttomText2"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/ic_ai_chat"
+        app:tint="#444444"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/btnAddExpense"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/editbuttomText2"
+        app:layout_constraintEnd_toEndOf="@+id/editbuttomText2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/editbuttomText2"
+        app:layout_constraintTop_toTopOf="@+id/editbuttomText2"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@android:drawable/ic_input_add"
+        app:tint="#444444"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/btnSpending"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/editbuttomText2"
+        app:layout_constraintEnd_toEndOf="@+id/editbuttomText2"
+        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintStart_toStartOf="@+id/editbuttomText2"
+        app:layout_constraintTop_toTopOf="@+id/editbuttomText2"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/ic_money2_name"
+        app:tint="#444444"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/btnScanner"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/editbuttomText2"
+        app:layout_constraintEnd_toEndOf="@+id/editbuttomText2"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="@+id/editbuttomText2"
+        app:layout_constraintTop_toTopOf="@+id/editbuttomText2"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/ic_receipt_name"
+        app:tint="#444444"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

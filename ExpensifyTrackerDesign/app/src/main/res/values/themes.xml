@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.ExpensifyTrackerDesign" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowSharedElementEnterTransition">@android:transition/move</item>
+        <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
+
+        <!-- ADD THIS LINE -->
+        <item name="materialButtonStyle">@style/Widget.AppCompat.Button</item>
+
+    </style>
+
+    <style name="Theme.ExpensifyTrackerDesign" parent="Base.Theme.ExpensifyTrackerDesign" />
+
+</resources>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_tracker"
+    android:padding="16dp"
+    tools:context=".Spending2Activity">
+
+    <View
+        android:id="@+id/headerBg"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="@drawable/input"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@id/headerBg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="@id/headerBg"
+        app:layout_constraintTop_toTopOf="@id/headerBg"
+        app:layout_constraintVertical_bias="0.446"
+        app:srcCompat="@drawable/ic_backarrow_name"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/addincometitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transactions"
+        android:textColor="#FAEC6F"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/headerBg"
+        app:layout_constraintEnd_toEndOf="@id/headerBg"
+        app:layout_constraintStart_toStartOf="@id/headerBg"
+        app:layout_constraintTop_toTopOf="@id/headerBg" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/headerBg"
+        app:layout_constraintEnd_toEndOf="@id/headerBg"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/headerBg"
+        app:layout_constraintVertical_bias="0.375"
+        app:srcCompat="@drawable/ic_action_name" />
+
+    <!-- Placeholder views for shared element transition -->
+    <View
+        android:id="@+id/circlePlaceholder"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:transitionName="spending_circle"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textPlaceholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:transitionName="spending_text"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSpendHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Recent Transactions"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:transitionName="spending_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerBg" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSpendHeader">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvExpenses"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <EditText
+        android:id="@+id/editbuttomText2"
+        android:layout_width="362dp"
+        android:layout_height="49dp"
+        android:background="@drawable/input"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/btnDashboard"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/editbuttomText2"
+        app:layout_constraintEnd_toEndOf="@+id/editbuttomText2"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="@+id/editbuttomText2"
+        app:layout_constraintTop_toTopOf="@+id/editbuttomText2"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/ic_home_name"
+        app:tint="#444444"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/btnAiChat"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/editbuttomText2"
+        app:layout_constraintEnd_toEndOf="@+id/editbuttomText2"
+        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintStart_toStartOf="@+id/editbuttomText2"
+        app:layout_constraintTop_toTopOf="@+id/editbuttomText2"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/ic_ai_chat"
+        app:tint="#444444"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/btnAddExpense"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/editbuttomText2"
+        app:layout_constraintEnd_toEndOf="@+id/editbuttomText2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/editbuttomText2"
+        app:layout_constraintTop_toTopOf="@+id/editbuttomText2"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@android:drawable/ic_input_add"
+        app:tint="#444444"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/btnSpending"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/bg_nav_active"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/editbuttomText2"
+        app:layout_constraintEnd_toEndOf="@+id/editbuttomText2"
+        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintStart_toStartOf="@+id/editbuttomText2"
+        app:layout_constraintTop_toTopOf="@+id/editbuttomText2"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/ic_money2_name"
+        app:tint="#000000"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/btnScanner"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/editbuttomText2"
+        app:layout_constraintEnd_toEndOf="@+id/editbuttomText2"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="@+id/editbuttomText2"
+        app:layout_constraintTop_toTopOf="@+id/editbuttomText2"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/ic_receipt_name"
+        app:tint="#444444"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

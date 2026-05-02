@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Store/Title"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/etConfirmTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g. Starbucks"
+        android:inputType="textCapWords" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Amount (RM)"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/etConfirmAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="0.00" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Category"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/etConfirmCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Food, Transport, etc."
+        android:inputType="textCapWords" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Date (YYYY-MM-DD)"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/etConfirmDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="2024-05-20"
+        android:inputType="date" />
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tvDateHeader"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F0F0F0"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="4dp"
+    android:text="Today"
+    android:textColor="#777777"
+    android:textSize="14sp"
+    android:textStyle="bold" />

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/ivExpenseIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/_0268" />
+
+    <TextView
+        android:id="@+id/tvExpenseTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Title"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/ivExpenseIcon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvExpenseDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Date"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/ivExpenseIcon"
+        app:layout_constraintTop_toBottomOf="@id/tvExpenseTitle" />
+
+    <TextView
+        android:id="@+id/tvExpenseNote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Note"
+        android:textColor="#777777"
+        android:textSize="12sp"
+        android:fontFamily="sans-serif-light"
+        android:fontStyle="italic"
+        app:layout_constraintEnd_toStartOf="@+id/tvExpenseCategory"
+        app:layout_constraintStart_toEndOf="@id/ivExpenseIcon"
+        app:layout_constraintTop_toBottomOf="@id/tvExpenseDate" />
+
+    <TextView
+        android:id="@+id/tvExpenseAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="-RM0.00"
+        android:textColor="#FF0000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvExpenseCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Category"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvExpenseAmount" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
